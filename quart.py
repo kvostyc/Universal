@@ -1,15 +1,14 @@
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from PyQt5 import QtWidgets, uic
 import serial
 import serial.tools.list_ports
 import sys
-import numpy as np
 import time
 import math
 
 import math
 import numpy as np
 
-from Open_GL import PyQtOpenGL
+from Open_GL import PyQtOpenGL #Importovanie OpenGl widgetu !
 
 L1 = 130 #Length of shoulder 1 in mm
 L2 = 115 #Length of shoulder 2 in mm

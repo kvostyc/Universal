@@ -19,7 +19,7 @@ class PyQtOpenGL(QOpenGLWidget):
 
 
     def initializeGL(self):                 # This virtual function is called once before the first call to paintGL() or resizeGL(). Reimplement it in a subclass.
-        glClearColor(0.0, 0.0, 1.0, 0.0)    # RGBA: R=0.0, G=0.0, B=1.0  => becomes Blue
+        glClearColor(1.0, 1.0, 0.0, 0.0)    # RGBA: R=0.0, G=0.0, B=1.0  => becomes Blue
         glClear(GL_COLOR_BUFFER_BIT)        # clear color buffer and set window with color defined above
 
     def resizeGL(self, w, h):                   # called when window gets resized (also when it first appears)
@@ -31,7 +31,7 @@ class PyQtOpenGL(QOpenGLWidget):
         
     def paintGL(self):                  # This virtual function is called whenever the widget needs to be painted. Reimplement it in a subclass.
         if self.paint_0:       
-            glColor3f(1.0, 0.0, 0.0)    # functions expects 3 f(loats); RGB: red
+            glColor3f(1.0, 1.0, 1.0)    # functions expects 3 f(loats); RGB: red
             glRectf(-5, -5, 5, 5)       # draw a filled rectangle with above color, position(x,y) pairs from center of window
  
         if self.paint_1: 
