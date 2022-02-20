@@ -53,7 +53,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.viewer.setCameraPosition(distance=2000)
         
         g = gl.GLGridItem()
-        g.setSize(2000, 2000)
+        g.setSize(1000, 1000)
         g.setSpacing(50, 50)
         g.setColor(QColor(33, 50, 94))
         self.viewer.addItem(g)
@@ -117,7 +117,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         points, faces = self.loadSTL(filename)
         meshdata = gl.MeshData(vertexes=points, faces=faces)
-        mesh = gl.GLMeshItem(meshdata=meshdata, smooth=True, drawFaces=False, drawEdges=True, edgeColor=(0, 1, 0, 1))
+        mesh = gl.GLMeshItem(meshdata=meshdata, smooth=True, drawFaces=True, drawEdges=True, edgeColor=(0, 1, 0, 1))
         self.viewer.addItem(mesh)
         
         self.currentSTL = mesh
