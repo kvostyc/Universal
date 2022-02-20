@@ -13,6 +13,9 @@ import sys
 import time
 import math
 
+from pathlib import Path
+from stl import mesh
+
 import math
 import numpy as np
 
@@ -30,22 +33,29 @@ ser = ""
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
+        self.setAcceptDrops(True)
 
         #Load the UI Page
         uic.loadUi('quart-ui.ui', self)
         
         #open_gl = PyQtOpenGL(parent=self.opengl)
         #open_gl.setMinimumSize(481, 451)
+
+        self.currentSTL = None
+        self.lastDir = None
+        
+        self.droppedFilename = None
    
         self.viewer = gl.GLViewWidget(parent=self.opengl)
-        self.viewer.setMinimumSize(481, 451)
-        
-        self.viewer.setWindowTitle('STL Viewer')
-        self.viewer.setCameraPosition(distance=200)
+        self.viewer.setMinimumSize(840, 700)
+        self.viewer.setBackgroundColor(QColor(240, 240, 240))
+
+        self.viewer.setCameraPosition(distance=2000)
         
         g = gl.GLGridItem()
-        g.setSize(200, 200)
-        g.setSpacing(5, 5)
+        g.setSize(2000, 2000)
+        g.setSpacing(50, 50)
+        g.setColor(QColor(33, 50, 94))
         self.viewer.addItem(g)
 
         
@@ -64,13 +74,15 @@ class MainWindow(QtWidgets.QMainWindow):
                 
         self.Console.setReadOnly(True)
 
+        self.console("Welcome back user !")
+
     def Connect_COM(self):
         PORT = self.COM_slot.currentText()
         BAUDRATE = self.BR_slot.currentText()
         ser = serial.Serial(PORT,BAUDRATE,timeout=2)
         time.sleep(2)                  
         ser.write('0'.encode("utf-8"))
-        self.Console.append("Connected")
+        self.console("Connected")
     
     def updateX(self, event):
         self.X_lcd.display(event)
@@ -94,7 +106,51 @@ class MainWindow(QtWidgets.QMainWindow):
             print(round(np.degrees(self.Theta1)))
             self.sendData()
         else:
-            self.Console.append("Nie ste pripojený.")
+            self.console("Nie ste pripojený.")
+    
+    def console(self, text):
+        self.Console.append(text)
+
+    def showSTL(self, filename):
+        if self.currentSTL:
+            self.viewer.removeItem(self.currentSTL)
+
+        points, faces = self.loadSTL(filename)
+        meshdata = gl.MeshData(vertexes=points, faces=faces)
+        mesh = gl.GLMeshItem(meshdata=meshdata, smooth=True, drawFaces=False, drawEdges=True, edgeColor=(0, 1, 0, 1))
+        self.viewer.addItem(mesh)
+        
+        self.currentSTL = mesh
+        
+    def loadSTL(self, filename):
+        m = mesh.Mesh.from_file(filename)
+        shape = m.points.shape
+        points = m.points.reshape(-1, 3)
+        faces = np.arange(points.shape[0]).reshape(-1, 3)
+        return points, faces
+
+    def dragEnterEvent(self, e):
+        print("enter")
+        mimeData = e.mimeData()
+        mimeList = mimeData.formats()
+        filename = None
+        
+        if "text/uri-list" in mimeList:
+            filename = mimeData.data("text/uri-list")
+            filename = str(filename, encoding="utf-8")
+            filename = filename.replace("file:///", "").replace("\r\n", "").replace("%20", " ")
+            filename = Path(filename)
+            
+        if filename.exists() and filename.suffix == ".stl":
+            e.accept()
+            self.droppedFilename = filename
+        else:
+            e.ignore()
+            self.droppedFilename = None
+        
+    def dropEvent(self, e):
+        if self.droppedFilename:
+            self.showSTL(self.droppedFilename)
         
 def main():
     app = QtWidgets.QApplication(sys.argv)

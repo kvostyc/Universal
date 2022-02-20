@@ -16,7 +16,8 @@ class Ui_Currency(object):
         Currency.setObjectName("Currency")
         Currency.resize(1363, 840)
         Currency.setAutoFillBackground(False)
-        Currency.setStyleSheet("font-family: Verdana;")
+        Currency.setStyleSheet("font-family: Verdana;\n"
+"background: #f0f0f0;")
         self.centralwidget = QtWidgets.QWidget(Currency)
         self.centralwidget.setStyleSheet("")
         self.centralwidget.setObjectName("centralwidget")
@@ -71,7 +72,8 @@ class Ui_Currency(object):
         self.loadButton.setObjectName("loadButton")
         self.Console = QtWidgets.QTextEdit(self.centralwidget)
         self.Console.setGeometry(QtCore.QRect(940, 140, 371, 161))
-        self.Console.setStyleSheet("border-radius: 5px;")
+        self.Console.setStyleSheet("border-radius: 5px;\n"
+"background: white;")
         self.Console.setObjectName("Console")
         self.moveButton = QtWidgets.QPushButton(self.centralwidget)
         self.moveButton.setGeometry(QtCore.QRect(1170, 500, 75, 23))
@@ -113,7 +115,6 @@ class Ui_Currency(object):
 "")
         self.COM_slot.setFrame(False)
         self.COM_slot.setObjectName("COM_slot")
-        self.COM_slot.addItem("")
         self.BR_slot = QtWidgets.QComboBox(self.widget_4)
         self.BR_slot.setGeometry(QtCore.QRect(100, 10, 61, 21))
         self.BR_slot.setStyleSheet("border-radius: 5px; \n"
@@ -121,7 +122,6 @@ class Ui_Currency(object):
 "")
         self.BR_slot.setFrame(False)
         self.BR_slot.setObjectName("BR_slot")
-        self.BR_slot.addItem("")
         self.connButton = QtWidgets.QPushButton(self.widget_4)
         self.connButton.setGeometry(QtCore.QRect(170, 10, 51, 23))
         self.connButton.setStyleSheet("border: none;\n"
@@ -136,7 +136,7 @@ class Ui_Currency(object):
 "margin: 0px;")
         self.discButton.setObjectName("discButton")
         self.opengl = QtWidgets.QFrame(self.centralwidget)
-        self.opengl.setGeometry(QtCore.QRect(60, 110, 1251, 701))
+        self.opengl.setGeometry(QtCore.QRect(60, 139, 840, 671))
         self.opengl.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.opengl.setFrameShadow(QtWidgets.QFrame.Raised)
         self.opengl.setObjectName("opengl")
@@ -147,6 +147,13 @@ class Ui_Currency(object):
 "background: #3E497A;\n"
 "padding: 6px;")
         self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(60, 110, 841, 31))
+        self.label_4.setStyleSheet("font-family: Verdana;\n"
+"color: white;\n"
+"background: #3E497A;\n"
+"padding: 6px;")
+        self.label_4.setObjectName("label_4")
         Currency.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(Currency)
         self.statusbar.setObjectName("statusbar")
@@ -157,15 +164,14 @@ class Ui_Currency(object):
 
     def retranslateUi(self, Currency):
         _translate = QtCore.QCoreApplication.translate
-        Currency.setWindowTitle(_translate("Currency", "Quart 0.1"))
+        Currency.setWindowTitle(_translate("Currency", "Universal"))
         self.startButton.setText(_translate("Currency", "Start program"))
         self.homingButton.setText(_translate("Currency", "Homing"))
         self.loadButton.setText(_translate("Currency", "Load program"))
         self.moveButton.setText(_translate("Currency", "Move"))
         self.label.setText(_translate("Currency", "Universal"))
         self.label_2.setText(_translate("Currency", "Q-Code Controller"))
-        self.COM_slot.setItemText(0, _translate("Currency", "COM1"))
-        self.BR_slot.setItemText(0, _translate("Currency", "COM1"))
         self.connButton.setText(_translate("Currency", "Connect"))
         self.discButton.setText(_translate("Currency", "Disconnect"))
         self.label_3.setText(_translate("Currency", "Console"))
+        self.label_4.setText(_translate("Currency", "Viewport"))

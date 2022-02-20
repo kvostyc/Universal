@@ -11,13 +11,14 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Quart 0.1</string>
+   <string>Universal</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">font-family: Verdana;</string>
+   <string notr="true">font-family: Verdana;
+background: #f0f0f0;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -180,7 +181,8 @@ border: 1px solid gray;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius: 5px;</string>
+     <string notr="true">border-radius: 5px;
+background: white;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="moveButton">
@@ -285,11 +287,6 @@ background: white;
       <property name="frame">
        <bool>false</bool>
       </property>
-      <item>
-       <property name="text">
-        <string>COM1</string>
-       </property>
-      </item>
      </widget>
      <widget class="QComboBox" name="BR_slot">
       <property name="geometry">
@@ -308,11 +305,6 @@ border: none;
       <property name="frame">
        <bool>false</bool>
       </property>
-      <item>
-       <property name="text">
-        <string>COM1</string>
-       </property>
-      </item>
      </widget>
      <widget class="QPushButton" name="connButton">
       <property name="geometry">
@@ -357,9 +349,9 @@ margin: 0px;</string>
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>110</y>
-      <width>1251</width>
-      <height>701</height>
+      <y>139</y>
+      <width>840</width>
+      <height>671</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -386,6 +378,25 @@ padding: 6px;</string>
     </property>
     <property name="text">
      <string>Console</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>841</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-family: Verdana;
+color: white;
+background: #3E497A;
+padding: 6px;</string>
+    </property>
+    <property name="text">
+     <string>Viewport</string>
     </property>
    </widget>
   </widget>
