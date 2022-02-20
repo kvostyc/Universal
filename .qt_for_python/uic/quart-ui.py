@@ -14,62 +14,46 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Currency(object):
     def setupUi(self, Currency):
         Currency.setObjectName("Currency")
-        Currency.resize(1011, 585)
+        Currency.resize(1363, 840)
         Currency.setAutoFillBackground(False)
+        Currency.setStyleSheet("font-family: Verdana;")
         self.centralwidget = QtWidgets.QWidget(Currency)
-        self.centralwidget.setStyleSheet("QPushButton{\n"
-"    border-radius: 5px; \n"
-"    border: 1px solid gray;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    font-size: 12px;\n"
-"}\n"
-"\n"
-"QFrame{\n"
-"    border: 1px solid black;\n"
-"}\n"
-"\n"
-"QSlider::handle:horizontal{\n"
-"    background-color: purple;\n"
-"    height: 40px;\n"
-"    width: 4px;\n"
-"    margin: -15px 0px;\n"
-"}")
+        self.centralwidget.setStyleSheet("")
         self.centralwidget.setObjectName("centralwidget")
         self.X_slider = QtWidgets.QSlider(self.centralwidget)
-        self.X_slider.setGeometry(QtCore.QRect(10, 200, 391, 22))
+        self.X_slider.setGeometry(QtCore.QRect(940, 400, 391, 22))
         self.X_slider.setMaximum(100)
         self.X_slider.setOrientation(QtCore.Qt.Horizontal)
         self.X_slider.setObjectName("X_slider")
         self.Y_slider = QtWidgets.QSlider(self.centralwidget)
-        self.Y_slider.setGeometry(QtCore.QRect(10, 230, 391, 22))
+        self.Y_slider.setGeometry(QtCore.QRect(940, 430, 391, 22))
         self.Y_slider.setMaximum(100)
         self.Y_slider.setOrientation(QtCore.Qt.Horizontal)
         self.Y_slider.setObjectName("Y_slider")
         self.Z_slider = QtWidgets.QSlider(self.centralwidget)
-        self.Z_slider.setGeometry(QtCore.QRect(10, 260, 391, 22))
+        self.Z_slider.setGeometry(QtCore.QRect(940, 460, 391, 22))
         self.Z_slider.setMaximum(180)
         self.Z_slider.setOrientation(QtCore.Qt.Horizontal)
         self.Z_slider.setObjectName("Z_slider")
         self.X_lcd = QtWidgets.QLCDNumber(self.centralwidget)
-        self.X_lcd.setGeometry(QtCore.QRect(420, 200, 64, 23))
+        self.X_lcd.setGeometry(QtCore.QRect(1110, 612, 64, 31))
         self.X_lcd.setStyleSheet("border-radius: 5px; \n"
 "border: 1px solid gray;")
         self.X_lcd.setObjectName("X_lcd")
         self.Y_lcd = QtWidgets.QLCDNumber(self.centralwidget)
-        self.Y_lcd.setGeometry(QtCore.QRect(420, 230, 64, 23))
+        self.Y_lcd.setGeometry(QtCore.QRect(1110, 650, 64, 21))
         self.Y_lcd.setStyleSheet("border-radius: 5px; \n"
 "border: 1px solid gray;")
         self.Y_lcd.setObjectName("Y_lcd")
         self.Z_lcd = QtWidgets.QLCDNumber(self.centralwidget)
-        self.Z_lcd.setGeometry(QtCore.QRect(420, 260, 64, 23))
+        self.Z_lcd.setGeometry(QtCore.QRect(1110, 680, 64, 23))
         self.Z_lcd.setStyleSheet("border-radius: 5px; \n"
 "border: 1px solid gray;")
         self.Z_lcd.setObjectName("Z_lcd")
         self.startButton = QtWidgets.QPushButton(self.centralwidget)
-        self.startButton.setGeometry(QtCore.QRect(10, 300, 111, 23))
+        self.startButton.setGeometry(QtCore.QRect(940, 500, 111, 23))
         font = QtGui.QFont()
+        font.setFamily("Verdana")
         font.setBold(True)
         font.setWeight(75)
         self.startButton.setFont(font)
@@ -77,34 +61,25 @@ class Ui_Currency(object):
 "border: 1px solid gray;")
         self.startButton.setObjectName("startButton")
         self.homingButton = QtWidgets.QPushButton(self.centralwidget)
-        self.homingButton.setGeometry(QtCore.QRect(320, 300, 75, 23))
+        self.homingButton.setGeometry(QtCore.QRect(1250, 500, 75, 23))
         self.homingButton.setStyleSheet("")
         self.homingButton.setObjectName("homingButton")
         self.loadButton = QtWidgets.QPushButton(self.centralwidget)
-        self.loadButton.setGeometry(QtCore.QRect(130, 300, 101, 23))
+        self.loadButton.setGeometry(QtCore.QRect(1060, 500, 101, 23))
         self.loadButton.setStyleSheet("border-radius: 5px; \n"
 "border: 1px solid gray;")
         self.loadButton.setObjectName("loadButton")
         self.Console = QtWidgets.QTextEdit(self.centralwidget)
-        self.Console.setGeometry(QtCore.QRect(10, 330, 481, 231))
-        self.Console.setStyleSheet("border-radius: 3px; border: 1px solid black;")
+        self.Console.setGeometry(QtCore.QRect(940, 140, 371, 161))
+        self.Console.setStyleSheet("border-radius: 5px;")
         self.Console.setObjectName("Console")
         self.moveButton = QtWidgets.QPushButton(self.centralwidget)
-        self.moveButton.setGeometry(QtCore.QRect(240, 300, 75, 23))
+        self.moveButton.setGeometry(QtCore.QRect(1170, 500, 75, 23))
         self.moveButton.setStyleSheet("border-radius: 5px; \n"
 "border: 1px solid gray;")
         self.moveButton.setObjectName("moveButton")
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(520, 110, 481, 451))
-        self.widget.setObjectName("widget")
-        self.opengl = QtWidgets.QFrame(self.widget)
-        self.opengl.setGeometry(QtCore.QRect(0, 0, 481, 451))
-        self.opengl.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.opengl.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.opengl.setObjectName("opengl")
         self.widget_3 = QtWidgets.QWidget(self.centralwidget)
-        self.widget_3.setGeometry(QtCore.QRect(-10, 0, 1031, 91))
-        self.widget_3.setMaximumSize(QtCore.QSize(1031, 91))
+        self.widget_3.setGeometry(QtCore.QRect(-10, 0, 1381, 91))
         self.widget_3.setStyleSheet("background-color: #21325E;")
         self.widget_3.setObjectName("widget_3")
         self.label = QtWidgets.QLabel(self.widget_3)
@@ -118,32 +93,33 @@ class Ui_Currency(object):
 "")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.widget_3)
-        self.label_2.setGeometry(QtCore.QRect(150, 10, 171, 20))
+        self.label_2.setGeometry(QtCore.QRect(150, 10, 131, 20))
         self.label_2.setStyleSheet("color: white;\n"
 "border: none;\n"
 "font-family: Verdana;\n"
-"font-size: 18px;\n"
+"font-size: 14px;\n"
 "\n"
 "")
         self.label_2.setObjectName("label_2")
         self.widget_4 = QtWidgets.QWidget(self.widget_3)
-        self.widget_4.setGeometry(QtCore.QRect(70, 50, 891, 41))
+        self.widget_4.setGeometry(QtCore.QRect(70, 50, 1251, 41))
         self.widget_4.setStyleSheet("background: white;\n"
 "border: 1px solid gray;")
         self.widget_4.setObjectName("widget_4")
         self.COM_slot = QtWidgets.QComboBox(self.widget_4)
         self.COM_slot.setGeometry(QtCore.QRect(30, 10, 61, 21))
         self.COM_slot.setStyleSheet("border: none;\n"
-"background: transparent;\n"
+"background: white;\n"
 "")
+        self.COM_slot.setFrame(False)
         self.COM_slot.setObjectName("COM_slot")
         self.COM_slot.addItem("")
         self.BR_slot = QtWidgets.QComboBox(self.widget_4)
         self.BR_slot.setGeometry(QtCore.QRect(100, 10, 61, 21))
         self.BR_slot.setStyleSheet("border-radius: 5px; \n"
 "border: none;\n"
-"background: transparent;\n"
 "")
+        self.BR_slot.setFrame(False)
         self.BR_slot.setObjectName("BR_slot")
         self.BR_slot.addItem("")
         self.connButton = QtWidgets.QPushButton(self.widget_4)
@@ -159,6 +135,18 @@ class Ui_Currency(object):
 "padding: 0px;\n"
 "margin: 0px;")
         self.discButton.setObjectName("discButton")
+        self.opengl = QtWidgets.QFrame(self.centralwidget)
+        self.opengl.setGeometry(QtCore.QRect(60, 110, 1251, 701))
+        self.opengl.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.opengl.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.opengl.setObjectName("opengl")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(940, 110, 371, 31))
+        self.label_3.setStyleSheet("font-family: Verdana;\n"
+"color: white;\n"
+"background: #3E497A;\n"
+"padding: 6px;")
+        self.label_3.setObjectName("label_3")
         Currency.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(Currency)
         self.statusbar.setObjectName("statusbar")
@@ -180,3 +168,4 @@ class Ui_Currency(object):
         self.BR_slot.setItemText(0, _translate("Currency", "COM1"))
         self.connButton.setText(_translate("Currency", "Connect"))
         self.discButton.setText(_translate("Currency", "Disconnect"))
+        self.label_3.setText(_translate("Currency", "Console"))

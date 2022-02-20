@@ -1,4 +1,12 @@
-from PyQt5 import QtWidgets, uic
+from pyqtgraph.Qt import QtCore, QtGui
+import pyqtgraph as pg
+import pyqtgraph.opengl as gl
+
+from PyQt5 import uic, QtWidgets
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *  
+ 
 import serial
 import serial.tools.list_ports
 import sys
@@ -8,7 +16,7 @@ import math
 import math
 import numpy as np
 
-from Open_GL import PyQtOpenGL #Importovanie OpenGl widgetu !
+#from Open_GL import PyQtOpenGL #Importovanie OpenGl widgetu !
 
 L1 = 130 #Length of shoulder 1 in mm
 L2 = 115 #Length of shoulder 2 in mm
@@ -26,8 +34,20 @@ class MainWindow(QtWidgets.QMainWindow):
         #Load the UI Page
         uic.loadUi('quart-ui.ui', self)
         
-        open_gl = PyQtOpenGL(parent=self.opengl)
-        open_gl.setMinimumSize(481, 451)
+        #open_gl = PyQtOpenGL(parent=self.opengl)
+        #open_gl.setMinimumSize(481, 451)
+   
+        self.viewer = gl.GLViewWidget(parent=self.opengl)
+        self.viewer.setMinimumSize(481, 451)
+        
+        self.viewer.setWindowTitle('STL Viewer')
+        self.viewer.setCameraPosition(distance=200)
+        
+        g = gl.GLGridItem()
+        g.setSize(200, 200)
+        g.setSpacing(5, 5)
+        self.viewer.addItem(g)
+
         
         ports = serial.tools.list_ports.comports(include_links=False)
         for port in ports:
