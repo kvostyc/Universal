@@ -1,3 +1,4 @@
+from random import random
 from pyqtgraph.Qt import QtCore, QtGui
 import pyqtgraph as pg
 import pyqtgraph.opengl as gl
@@ -9,9 +10,7 @@ from PyQt5.QtGui import *
  
 import serial
 import serial.tools.list_ports
-import sys
-import time
-import math
+import sys, time, math, random
 
 from pathlib import Path
 from stl import mesh
@@ -45,12 +44,20 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lastDir = None
         
         self.droppedFilename = None
+
+        self.macro = None
+        self.creatingMacro = 0
+
+        self.x = 0
+        self.y = 0
+        self.z = 0
+        self.a = 0
    
         self.viewer = gl.GLViewWidget(parent=self.opengl)
         self.viewer.setMinimumSize(840, 700)
         self.viewer.setBackgroundColor(QColor(250, 250, 250))
 
-        self.viewer.setCameraPosition(distance=2000)
+        self.viewer.setCameraPosition(distance=1600)
         
         g = gl.GLGridItem()
         g.setSize(1000, 1000)
@@ -67,14 +74,23 @@ class MainWindow(QtWidgets.QMainWindow):
         for j in baudrates:
             self.BR_slot.addItem(str(j))
 
+        # BUTTONS
         self.connButton.clicked.connect(self.Connect_COM)
         self.moveButton.clicked.connect(self.calculateAngles)
+
+        # MACRO CREATING
+        self.create_MacroButton.clicked.connect(self.Create_Macro)
+        self.save_MacroButton.clicked.connect(self.Save_Macro)
+
+        self.save_PosButton.clicked.connect(self.Save_Pos)
         
+        # SLIDER VALUES UPDATES
         self.X_slider.valueChanged.connect(self.updateX)
         self.Y_slider.valueChanged.connect(self.updateY)
         self.Z_slider.valueChanged.connect(self.updateZ)
         self.A_slider.valueChanged.connect(self.updateA)
 
+        # CONSOLE LOADING
         self.console("Welcome back <b>user</b> !")
 
     def Connect_COM(self):
@@ -84,6 +100,41 @@ class MainWindow(QtWidgets.QMainWindow):
         time.sleep(2)                  
         ser.write('0'.encode("utf-8"))
         self.console("Connected")
+
+    def Create_Macro(self):
+        if(self.creatingMacro != 1):
+            self.console("Creating Macro...")
+            self.macro = ""
+
+            self.creatingMacro = 1
+        else:
+            self.console("Already creating macro... !!")
+
+    def Save_Macro(self):
+        if(self.creatingMacro != 1):
+            self.console("You are not creating any macro..")
+        else:
+            macroName = random.randint(9, 369)
+
+            self.macro = self.macro + "END"
+
+            f = open(f"MACROS/{macroName}.qcode", "w")
+            f.write(self.macro)
+            f.close()
+
+            self.console("END")
+            self.console("Macro succesfully saved !")
+
+            self.creatingMacro = 0
+            self.macro = ""
+
+    def Save_Pos(self):
+        if(self.creatingMacro != 1):
+            self.console("You are not creating any macro..")
+        else:
+            self.console(f"GO({self.x}, {self.y}, {self.z}, {self.a});")
+            self.macro = self.macro + f"GO({self.x}, {self.y}, {self.z}, {self.a});\n"
+            print(self.macro)
     
     def updateX(self, event):
         self.X_lcd.setText(f'{event}')
@@ -98,7 +149,7 @@ class MainWindow(QtWidgets.QMainWindow):
     
     def updateZ(self, event):
         self.Z_lcd.setText(f'{event}')
-        self.Z = event
+        self.z = event
 
     def updateA(self, event):
         self.A_lcd.setText(f'{event}')
@@ -121,7 +172,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.Theta2 = math.acos((self.x*self.x + self.y*self.y - L1^2 - L2^2)/(2 * L1 * L2))
             print(round(np.degrees(self.Theta2)))
 
-            self.Theta1 = math.atan(self.x/self.y) - math.atan((L2 * math.sin(self.Theta2))/(L1 + L2 * math.cos(self.Theta2)))
+            self.Theta1 = math.atan(self.y/self.y) - math.atan((L2 * math.sin(self.Theta2))/(L1 + L2 * math.cos(self.Theta2)))
             print(round(np.degrees(self.Theta1)))
             self.sendData()
         else:

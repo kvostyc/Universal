@@ -131,29 +131,36 @@ class Ui_Currency(object):
         self.Z_slider.setOrientation(QtCore.Qt.Horizontal)
         self.Z_slider.setObjectName("Z_slider")
         self.startButton = QtWidgets.QPushButton(self.widget)
-        self.startButton.setGeometry(QtCore.QRect(10, 150, 81, 23))
+        self.startButton.setGeometry(QtCore.QRect(100, 180, 121, 23))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setBold(True)
         font.setWeight(75)
         self.startButton.setFont(font)
-        self.startButton.setStyleSheet("border-radius: 5px; \n"
-"border: 1px solid gray;")
+        self.startButton.setStyleSheet("border: 1px solid black;\n"
+"background: #F0f0f0;\n"
+"")
         self.startButton.setObjectName("startButton")
         self.homingButton = QtWidgets.QPushButton(self.widget)
-        self.homingButton.setGeometry(QtCore.QRect(110, 150, 81, 23))
-        self.homingButton.setStyleSheet("border-radius: 5px; \n"
-"border: 1px solid gray;")
+        self.homingButton.setGeometry(QtCore.QRect(10, 150, 81, 23))
+        self.homingButton.setStyleSheet("border: 1px solid black;\n"
+"background: #F0f0f0;\n"
+"font-weight: bold;\n"
+"")
         self.homingButton.setObjectName("homingButton")
         self.loadButton = QtWidgets.QPushButton(self.widget)
         self.loadButton.setGeometry(QtCore.QRect(10, 180, 81, 23))
-        self.loadButton.setStyleSheet("border-radius: 5px; \n"
-"border: 1px solid gray;")
+        self.loadButton.setStyleSheet("border: 1px solid black;\n"
+"background: #F0f0f0;\n"
+"font-weight: bold;\n"
+"")
         self.loadButton.setObjectName("loadButton")
         self.moveButton = QtWidgets.QPushButton(self.widget)
         self.moveButton.setGeometry(QtCore.QRect(10, 210, 81, 23))
-        self.moveButton.setStyleSheet("border-radius: 5px; \n"
-"border: 1px solid gray;")
+        self.moveButton.setStyleSheet("border: 1px solid black;\n"
+"background: #F0f0f0;\n"
+"font-weight: bold;\n"
+"")
         self.moveButton.setObjectName("moveButton")
         self.A_slider = QtWidgets.QSlider(self.widget)
         self.A_slider.setGeometry(QtCore.QRect(10, 110, 301, 22))
@@ -177,6 +184,59 @@ class Ui_Currency(object):
         self.A_lcd.setGeometry(QtCore.QRect(330, 110, 31, 16))
         self.A_lcd.setStyleSheet("font-size: 16px;")
         self.A_lcd.setObjectName("A_lcd")
+        self.line = QtWidgets.QFrame(self.widget)
+        self.line.setGeometry(QtCore.QRect(10, 120, 351, 20))
+        self.line.setStyleSheet("border-left: none;\n"
+"border-right: none;\n"
+"border-top: none;")
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.create_MacroButton = QtWidgets.QPushButton(self.widget)
+        self.create_MacroButton.setGeometry(QtCore.QRect(100, 150, 261, 23))
+        self.create_MacroButton.setStyleSheet("border: 1px solid black;\n"
+"background: #F0f0f0;\n"
+"font-weight: bold;\n"
+"")
+        self.create_MacroButton.setObjectName("create_MacroButton")
+        self.save_PosButton = QtWidgets.QPushButton(self.widget)
+        self.save_PosButton.setGeometry(QtCore.QRect(240, 180, 121, 23))
+        font = QtGui.QFont()
+        font.setFamily("Verdana")
+        font.setBold(True)
+        font.setWeight(75)
+        self.save_PosButton.setFont(font)
+        self.save_PosButton.setStyleSheet("border: 1px solid black;\n"
+"background: #F0f0f0;\n"
+"")
+        self.save_PosButton.setObjectName("save_PosButton")
+        self.save_MacroButton = QtWidgets.QPushButton(self.widget)
+        self.save_MacroButton.setGeometry(QtCore.QRect(240, 210, 121, 23))
+        font = QtGui.QFont()
+        font.setFamily("Verdana")
+        font.setBold(True)
+        font.setWeight(75)
+        self.save_MacroButton.setFont(font)
+        self.save_MacroButton.setStyleSheet("border: 1px solid black;\n"
+"background: #F0f0f0;\n"
+"")
+        self.save_MacroButton.setObjectName("save_MacroButton")
+        self.line.raise_()
+        self.X_slider.raise_()
+        self.Y_slider.raise_()
+        self.Z_slider.raise_()
+        self.startButton.raise_()
+        self.homingButton.raise_()
+        self.loadButton.raise_()
+        self.moveButton.raise_()
+        self.A_slider.raise_()
+        self.X_lcd.raise_()
+        self.Y_lcd.raise_()
+        self.Z_lcd.raise_()
+        self.A_lcd.raise_()
+        self.create_MacroButton.raise_()
+        self.save_PosButton.raise_()
+        self.save_MacroButton.raise_()
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(940, 320, 371, 31))
         self.label_5.setStyleSheet("font-family: Verdana;\n"
@@ -292,14 +352,17 @@ class Ui_Currency(object):
         self.discButton.setText(_translate("Currency", "Disconnect"))
         self.label_3.setText(_translate("Currency", "Console"))
         self.label_4.setText(_translate("Currency", "Viewport"))
-        self.startButton.setText(_translate("Currency", "start"))
+        self.startButton.setText(_translate("Currency", "LOAD"))
         self.homingButton.setText(_translate("Currency", "Homing"))
-        self.loadButton.setText(_translate("Currency", "load"))
+        self.loadButton.setText(_translate("Currency", "MOVE TO"))
         self.moveButton.setText(_translate("Currency", "Move"))
         self.X_lcd.setText(_translate("Currency", "0"))
         self.Y_lcd.setText(_translate("Currency", "0"))
         self.Z_lcd.setText(_translate("Currency", "0"))
         self.A_lcd.setText(_translate("Currency", "0"))
+        self.create_MacroButton.setText(_translate("Currency", "CREATE MACRO"))
+        self.save_PosButton.setText(_translate("Currency", "SAVE POS"))
+        self.save_MacroButton.setText(_translate("Currency", "SAVE MACRO"))
         self.label_5.setText(_translate("Currency", "Control"))
         self.label_6.setText(_translate("Currency", "CURRENT POSITION"))
         self.label_7.setText(_translate("Currency", "X"))
