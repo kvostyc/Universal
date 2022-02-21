@@ -48,7 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
    
         self.viewer = gl.GLViewWidget(parent=self.opengl)
         self.viewer.setMinimumSize(840, 700)
-        self.viewer.setBackgroundColor(QColor(240, 240, 240))
+        self.viewer.setBackgroundColor(QColor(250, 250, 250))
 
         self.viewer.setCameraPosition(distance=2000)
         
@@ -58,6 +58,7 @@ class MainWindow(QtWidgets.QMainWindow):
         g.setColor(QColor(33, 50, 94))
         self.viewer.addItem(g)
 
+        self.connect_slider_values()
         
         ports = serial.tools.list_ports.comports(include_links=False)
         for port in ports:
@@ -71,10 +72,10 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.X_slider.valueChanged.connect(self.updateX)
         self.Y_slider.valueChanged.connect(self.updateY)
-                
-        self.Console.setReadOnly(True)
+        self.Z_slider.valueChanged.connect(self.updateZ)
+        self.A_slider.valueChanged.connect(self.updateA)
 
-        self.console("Welcome back user !")
+        self.console("Welcome back <b>user</b> !")
 
     def Connect_COM(self):
         PORT = self.COM_slot.currentText()
@@ -85,12 +86,30 @@ class MainWindow(QtWidgets.QMainWindow):
         self.console("Connected")
     
     def updateX(self, event):
-        self.X_lcd.display(event)
+        self.X_lcd.setText(f'{event}')
         self.x = event
+
+        if(self.currentSTL):
+            self.currentSTL.rotate(20, 5, 5, 5)
+
     def updateY(self, event):
-        self.Y_lcd.display(event)
+        self.Y_lcd.setText(f'{event}')
         self.y = event
+    
+    def updateZ(self, event):
+        self.Z_lcd.setText(f'{event}')
+        self.Z = event
+
+    def updateA(self, event):
+        self.A_lcd.setText(f'{event}')
+        self.a = event
         
+    def connect_slider_values(self):
+        self.X_lcd.setText(f'{self.X_slider.value()}')
+        self.Y_lcd.setText(f'{self.Y_slider.value()}')
+        self.Z_lcd.setText(f'{self.Z_slider.value()}')
+        self.A_lcd.setText(f'{self.A_slider.value()}')
+
     def sendData(self):
         data = str(self.Theta2) \
         +","+str(self.Theta1) 
@@ -106,7 +125,7 @@ class MainWindow(QtWidgets.QMainWindow):
             print(round(np.degrees(self.Theta1)))
             self.sendData()
         else:
-            self.console("Nie ste pripojený.")
+            self.console("Not connected.")
     
     def console(self, text):
         self.Console.append(text)
@@ -117,7 +136,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         points, faces = self.loadSTL(filename)
         meshdata = gl.MeshData(vertexes=points, faces=faces)
-        mesh = gl.GLMeshItem(meshdata=meshdata, smooth=True, drawFaces=True, drawEdges=True, edgeColor=(0, 1, 0, 1))
+        mesh = gl.GLMeshItem(meshdata=meshdata, smooth=True, drawFaces=True, drawEdges=True, edgeColor=(0, 0, 0, 1))
         self.viewer.addItem(mesh)
         
         self.currentSTL = mesh
@@ -130,7 +149,7 @@ class MainWindow(QtWidgets.QMainWindow):
         return points, faces
 
     def dragEnterEvent(self, e):
-        print("enter")
+        #print("enter")
         mimeData = e.mimeData()
         mimeList = mimeData.formats()
         filename = None

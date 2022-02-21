@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1363</width>
+    <width>1367</width>
     <height>840</height>
    </rect>
   </property>
@@ -18,7 +18,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">font-family: Verdana;
-background: #f0f0f0;</string>
+background: #f0f0f0;
+text-transform: uppercase;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -33,9 +34,15 @@ background: #f0f0f0;</string>
       <height>161</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">border-radius: 5px;
-background: white;</string>
+     <string notr="true">background: white;
+border: 1px solid black;</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QWidget" name="widget_3" native="true">
@@ -55,7 +62,7 @@ background: white;</string>
       <rect>
        <x>20</x>
        <y>10</y>
-       <width>131</width>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -75,9 +82,9 @@ font-weight: bold;
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>180</x>
        <y>10</y>
-       <width>131</width>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -147,7 +154,7 @@ border: none;
        <rect>
         <x>170</x>
         <y>10</y>
-        <width>51</width>
+        <width>71</width>
         <height>23</height>
        </rect>
       </property>
@@ -164,9 +171,9 @@ margin: 0px;
      <widget class="QPushButton" name="discButton">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>250</x>
         <y>10</y>
-        <width>61</width>
+        <width>81</width>
         <height>23</height>
        </rect>
       </property>
@@ -189,6 +196,9 @@ margin: 0px;</string>
       <width>840</width>
       <height>671</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -239,26 +249,32 @@ padding: 6px;</string>
     <property name="geometry">
      <rect>
       <x>940</x>
-      <y>330</y>
+      <y>350</y>
       <width>371</width>
       <height>251</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background: white;
-</string>
+border: 1px solid black;</string>
     </property>
     <widget class="QSlider" name="X_slider">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>241</width>
+       <width>301</width>
        <height>22</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: none;</string>
+     </property>
+     <property name="minimum">
+      <number>-180</number>
+     </property>
      <property name="maximum">
-      <number>100</number>
+      <number>180</number>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -269,12 +285,18 @@ padding: 6px;</string>
       <rect>
        <x>10</x>
        <y>50</y>
-       <width>241</width>
+       <width>301</width>
        <height>22</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: none;</string>
+     </property>
+     <property name="minimum">
+      <number>-120</number>
+     </property>
      <property name="maximum">
-      <number>100</number>
+      <number>120</number>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -285,12 +307,18 @@ padding: 6px;</string>
       <rect>
        <x>10</x>
        <y>80</y>
-       <width>241</width>
-       <height>22</height>
+       <width>301</width>
+       <height>21</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: none;</string>
+     </property>
+     <property name="minimum">
+      <number>-160</number>
+     </property>
      <property name="maximum">
-      <number>180</number>
+      <number>160</number>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -300,8 +328,8 @@ padding: 6px;</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>140</y>
-       <width>111</width>
+       <y>150</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
@@ -317,15 +345,15 @@ padding: 6px;</string>
 border: 1px solid gray;</string>
      </property>
      <property name="text">
-      <string>Start program</string>
+      <string>start</string>
      </property>
     </widget>
     <widget class="QPushButton" name="homingButton">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>140</y>
-       <width>75</width>
+       <x>110</x>
+       <y>150</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
@@ -341,8 +369,8 @@ border: 1px solid gray;</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>170</y>
-       <width>101</width>
+       <y>180</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
@@ -351,15 +379,15 @@ border: 1px solid gray;</string>
 border: 1px solid gray;</string>
      </property>
      <property name="text">
-      <string>Load program</string>
+      <string>load</string>
      </property>
     </widget>
     <widget class="QPushButton" name="moveButton">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>200</y>
-       <width>75</width>
+       <y>210</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
@@ -371,20 +399,87 @@ border: 1px solid gray;</string>
       <string>Move</string>
      </property>
     </widget>
-    <widget class="QSlider" name="Z_slider_2">
+    <widget class="QSlider" name="A_slider">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>110</y>
-       <width>241</width>
+       <width>301</width>
        <height>22</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: none;</string>
+     </property>
      <property name="maximum">
-      <number>180</number>
+      <number>360</number>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="X_lcd">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>20</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 16px;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Y_lcd">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>50</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 16px;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Z_lcd">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>80</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 16px;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="A_lcd">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>110</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 16px;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
      </property>
     </widget>
    </widget>
@@ -392,7 +487,7 @@ border: 1px solid gray;</string>
     <property name="geometry">
      <rect>
       <x>940</x>
-      <y>300</y>
+      <y>320</y>
       <width>371</width>
       <height>31</height>
      </rect>
@@ -407,6 +502,257 @@ padding: 6px;</string>
      <string>Control</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>110</y>
+      <width>371</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-family: Verdana;
+color: white;
+background: #3E497A;
+padding: 6px;</string>
+    </property>
+    <property name="text">
+     <string>CURRENT POSITION</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>140</y>
+      <width>371</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white;
+border: 1px solid black;</string>
+    </property>
+    <widget class="QWidget" name="widget_5" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #F0F0F0;
+border: 1px solid black;</string>
+     </property>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>15</x>
+        <y>5</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 32px;
+border: none;
+</string>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_6" native="true">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>10</y>
+       <width>291</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #F0F0F0;
+border: 1px solid black;</string>
+     </property>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 32px;
+border: none;</string>
+      </property>
+      <property name="text">
+       <string>0.0000</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_8" native="true">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>60</y>
+       <width>291</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #F0F0F0;
+border: 1px solid black;</string>
+     </property>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 32px;
+border: none;</string>
+      </property>
+      <property name="text">
+       <string>0.0000</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_9" native="true">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>110</y>
+       <width>291</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #F0F0F0;
+border: 1px solid black;</string>
+     </property>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 32px;
+border: none;</string>
+      </property>
+      <property name="text">
+       <string>0.0000</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_7" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #F0F0F0;
+border: 1px solid black;</string>
+     </property>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>15</x>
+        <y>5</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 32px;
+border: none;
+</string>
+      </property>
+      <property name="text">
+       <string>Y</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_10" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: #F0F0F0;
+border: 1px solid black;</string>
+     </property>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>15</x>
+        <y>5</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 32px;
+border: none;
+</string>
+      </property>
+      <property name="text">
+       <string>Z</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>790</y>
+      <width>371</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>widget_2</zorder>
+   <zorder>Console</zorder>
+   <zorder>widget_3</zorder>
+   <zorder>opengl</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>widget</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>lineEdit</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
